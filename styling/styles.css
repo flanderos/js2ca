@@ -1,0 +1,201 @@
+:root {
+  --blueOne: #005073;
+  --blueTwo: #107dac;
+  --blueThree: #189ad3;
+  --blueFour: #1ebbd7;
+  --blueFive: #71c7ec;
+  --white: #fff;
+  --black: #000000;
+}
+
+body {
+  background-color: #fff;
+  color: var(--blueOne);
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--blueOne);
+  color: var(--white);
+  font-family: "Poppins", sans-serif;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.headerimg {
+  height: 160px;
+  width: 160px;
+  background-image: url(/images/logo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 25px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  list-style-type: none;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.headericons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 10px;
+}
+
+.loginbutton {
+  color: #005073;
+  background-color: #fff;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.loginbutton a {
+  color: #005073;
+}
+
+.landingsection {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(/images/adrian-infernus-GLf7bAwCdYg-unsplash.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+
+.landingsectionbox {
+  margin-top: 150px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.mainheading {
+  font-size: 3.5rem;
+}
+
+.counter {
+  color: #fff;
+  font-family: "Roboto Slab", serif;
+  margin-bottom: -15px;
+}
+
+.countersloagan {
+  color: #fff;
+  font-family: "Roboto Slab", serif;
+}
+
+.loginlink {
+  display: block;
+  width: 200px;
+  height: 30px;
+  background-color: #fff;
+  color: #005073;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  font-family: "Roboto Slab", serif;
+}
+
+.secondsection {
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto Slab", serif;
+  margin-left: 40px;
+}
+
+.sectiontwoheading {
+  font-size: 2rem;
+}
+
+.bigdiv2 {
+  flex: 1;
+}
+
+.secondsectionimage {
+  background-image: url(/images/junior-ferreira-7esRPTt38nI-unsplash.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 400px;
+  height: 400px;
+  flex: 1;
+  padding: 5px;
+  opacity: 20%;
+  border-radius: 50%;
+}
+
+.blogsection {
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+}
+
+.topsectionthreediv {
+  display: flex;
+  gap: 50px;
+}
+
+.cardcontainer {
+  width: 90%;
+  height: 600px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.blogpost {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.blogprevimg {
+  background-image: url(/images/david-matos-xtLIgpytpck-unsplash.jpg);
+  width: 300px;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
