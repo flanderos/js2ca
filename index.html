@@ -18,14 +18,13 @@
     <title>The Noroff Student FaceCommunityBook Inc.</title>
   </head>
   <body>
-    <header>
+    <header id="header">
       <div class="headerimg"></div>
       <nav>
         <ul>
           <li class="active">Home</li>
-          <li>Community</li>
+          <a href="community.html"><li>Community</li></a>
           <a href="blog.html"><li>Blog</li></a>
-          <li>Contact us</li>
         </ul>
       </nav>
       <div class="headericons">
@@ -35,7 +34,8 @@
         <div><i class="fa-brands fa-pinterest-p"></i></div>
         <div><i class="fa-brands fa-square-instagram"></i></div>
         <div class="searchicon"></div>
-        <div class="loginbutton"><a href="login.html">Login</a></div>
+        <div class="loginbuttontop">Login</div>
+        <a href="login.html"><div class="registerbuttontop">Register</div></a>
       </div>
     </header>
     <section class="landingsection">
@@ -48,6 +48,27 @@
         </div>
 
         <a class="loginlink" href="login.html">Discover</a>
+        <div class="orangeline"></div>
+      </div>
+    </section>
+    <section class="loginsection">
+      <div class="formcontainer">
+        <form>
+          <h2>Sign in</h2>
+          <label for="email">Your E-mail</label>
+          <input type="email" class="emailinput" id="emailinput" />
+          <div class="loginemailerror" id="valerror">Enter a valid email</div>
+          <label for="password">Password</label>
+          <input type="password" class="passwordinput" id="passwordinput" />
+          <div class="wrongpassword" id="valerror">Wrong password</div>
+          <div class="line">
+            <label for="checkbox">Remember me</label>
+            <input type="checkbox" />
+          </div>
+          <button type="submit" class="submitbtn" id="submitlogin">
+            Login
+          </button>
+        </form>
       </div>
     </section>
     <section class="secondsection">
@@ -66,17 +87,19 @@
           </div>
         </div>
       </div>
-      <div class="secondsectionimage" alt="photo of a brain"></div>
+      <div class="imagecontainer">
+        <div class="secondsectionimage" alt="photo of a brain"></div>
+      </div>
     </section>
     <section class="blogsection">
       <div class="container">
         <div class="topsectionthreediv">
-          <h4>Expand Your Mind. Explore Our blog</h4>
           <p>
             Discover a vibrant student community. Fuel your intellect.
             Collaborate. Learn. Inspire. Connect. Innovate. Empower. Grow.
             Share. Explore. Expand horizons. Join us today!
           </p>
+          <h4>Expand Your Mind. Explore Our blog</h4>
         </div>
         <div class="cardcontainer">
           <div class="blogpost">
@@ -115,7 +138,7 @@
           discourse, scholarly articles, and exclusive opportunities to enrich
           your intellectual odyssey.
         </p>
-        <input type="text" class="emailinput" />
+        <input type="text" class="emailinput" placeholder="Your e-mail" />
         <button class="subscribebutton">Subscribe now! -></button>
       </div>
       <div class="footerdivtwo">
@@ -132,15 +155,18 @@
           </div>
           <div class="links">
             <ul>
-              <li>Home</li>
-              <li>About</li>
-              <li>Blog</li>
-              <li>Contact Us</li>
+              <a href="#header"><li>Home</li></a>
+              <a href="about.html"><li>About</li></a>
+              <a href="blog.html"><li>Blog</li></a>
+              <a href="contact.html"><li>Contact Us</li></a>
             </ul>
           </div>
         </div>
       </div>
+      <div class="object"></div>
+      <div class="objecttwo"></div>
     </footer>
     <script src="javascript/script.js"></script>
+    <script src="javascript/validation.js"></script>
   </body>
 </html>

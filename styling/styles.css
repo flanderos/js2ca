@@ -11,6 +11,11 @@
 body {
   background-color: #fff;
   color: var(--blueOne);
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  max-width: 1900px;
+  transition: 0.3s;
 }
 
 a {
@@ -35,6 +40,7 @@ header {
   color: var(--white);
   font-family: "Poppins", sans-serif;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 100%;
 }
 
 .headerimg {
@@ -62,6 +68,7 @@ ul {
   flex-direction: row;
   gap: 10px;
   margin: 10px;
+  align-items: flex-end;
 }
 
 .loginbutton {
@@ -83,12 +90,11 @@ ul {
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-image: url(/images/adrian-infernus-GLf7bAwCdYg-unsplash.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 600px;
+  align-items: flex-start;
+  height: 800px;
+  padding-left: 10px;
+  border-bottom: 10px solid var(--blueOne);
+  transition: 0.3s;
 }
 
 .landingsectionbox {
@@ -101,28 +107,48 @@ ul {
 }
 
 .counter {
-  color: #fff;
+  color: #005073;
   font-family: "Roboto Slab", serif;
   margin-bottom: -15px;
 }
 
 .countersloagan {
-  color: #fff;
+  color: #005073;
   font-family: "Roboto Slab", serif;
 }
 
+.sloagan {
+  font-family: "Neucha", cursive;
+}
+
+.orangeline {
+  height: 3px;
+  line-height: 400px;
+  background-color: orange;
+  margin-top: 20px;
+}
+
 .loginlink {
-  display: block;
-  width: 200px;
-  height: 30px;
-  background-color: #fff;
-  color: #005073;
+  display: flex;
+  justify-content: flex-start;
+  width: 300px;
+  height: 90px;
+  margin-top: 25px;
+  color: #fff;
+  background-color: #107dac;
   border-radius: 6px;
   display: flex;
   align-items: center;
   padding-left: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  font-family: "Roboto Slab", serif;
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+  transition: 0.3s;
+  justify-content: center;
+}
+
+.loginlink:hover {
+  background-color: #189ad3;
 }
 
 .secondsection {
@@ -132,7 +158,9 @@ ul {
   justify-content: center;
   align-items: center;
   font-family: "Roboto Slab", serif;
-  margin-left: 40px;
+  margin-bottom: 50px;
+
+  padding-left: 5px;
 }
 
 .sectiontwoheading {
@@ -154,48 +182,464 @@ ul {
   padding: 5px;
   opacity: 20%;
   border-radius: 50%;
+  mask-image: linear-gradient(rgb(255, 255, 25rgba (255, 255, 255, 0), 0));
+}
+
+.whytxt {
+  font-family: "Neucha", cursive;
+  font-style: italic;
+}
+
+header .loginbutton {
+  color: #000000;
+}
+
+.loginbuttontop {
+  width: 150px;
+  height: 35px;
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #107dac;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.registerbuttontop {
+  width: 150px;
+  height: 35px;
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #107dac;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.registerbuttontop:hover {
+  cursor: pointer;
+  background-color: #189ad3;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.loginbutton {
+  width: 500px;
+  height: 75px;
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #107dac;
+  transition: 0.3s;
+}
+
+.loginbuttontop:hover {
+  cursor: pointer;
+  background-color: #189ad3;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .blogsection {
   height: 800px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  width: 95%;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  width: 90%;
   align-items: center;
 }
 
 .topsectionthreediv {
   display: flex;
   gap: 50px;
+  margin-left: 5px;
+}
+
+.topsectionthreediv h4 {
+  font-size: 2rem;
+  margin-block-start: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.topsectionthreediv p {
+  font-size: 1rem;
+  margin-block-start: 1rem;
+  font-style: italic;
+  font-family: "Neucha", cursive;
 }
 
 .cardcontainer {
   width: 90%;
   height: 600px;
-  border: 1px solid black;
+
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 
 .blogpost {
   width: 30%;
   display: flex;
   flex-direction: column;
+
+  gap: 20px;
+  padding: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.blogpost:hover {
+  cursor: pointer;
 }
 
 .blogprevimg {
   background-image: url(/images/david-matos-xtLIgpytpck-unsplash.jpg);
-  width: 300px;
+  width: 100%;
   height: 300px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.blogprevheading {
+  font-family: "Molengo", sans-serif;
+}
+
+.blogprevinfo {
+  font-family: "Molengo", sans-serif;
+}
+
+.object {
+  height: 10px;
+  width: 1600px;
+  background-color: #005073;
+  position: absolute;
+  top: 0;
+  margin-top: 200px;
+}
+
+footer {
+  color: #fff;
+  background-color: #005073;
+  height: 600px;
+  border-radius: 5px 30px 0px 0px;
+}
+
+.footerheading {
+  font-family: "Poppins", sans-serif;
+}
+
+.footerdivone {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.footerdivone p {
+  font-family: "Neucha", cursive;
+  font-style: italic;
+  width: 40%;
+}
+
+.emailinput {
+  height: 30px;
+  width: 300px;
+}
+
+.passwordinput {
+  height: 30px;
+  width: 300px;
+}
+
+.subscribebutton {
+  height: 34px;
+  width: 200px;
+  padding: 0;
+  border-width: 0;
+  margin-left: 15px;
+}
+
+.subscribebutton:hover {
+  cursor: pointer;
+}
+
+.footerdivtwobox {
+  width: 40%;
+  font-family: "Neucha", cursive;
+  font-style: italic;
+}
+
+.links {
+  margin-top: 300px;
+  font-family: "Poppins", sans-serif;
+}
+
+nav ul li:hover {
+  text-decoration: underline;
+}
+
+/* SIGN IN/SIGN UP FORM */
+
+.loginsection {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  position: absolute;
+  top: 0;
+  margin-top: 400px;
+  margin-right: 100px;
+  transform: translateX(-3000px);
+  color: #005073;
+  transition: 0.5s;
+  z-index: 2;
+  opacity: 100%;
+}
+
+.formcontainer {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+form {
+  font-family: "Poppins", sans-serif;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+input {
+  height: 15px;
+  width: 300px;
+}
+
+form .submitbtn {
+  height: 30px;
+  width: 200px;
+  border: none;
+  background-color: #107dac;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+form .submitbtn:hover {
+  cursor: pointer;
+}
+
+/* Profilepage */
+
+.profiles {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.profile-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  max-width: 300px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+}
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.postbox {
+  border: 1px solid #ccc;
+  padding: 20px;
+  max-width: 400px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+}
+
+.posttags {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.tag {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.postpreviewheading {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.postcreator,
+.postdatetime {
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.postpreviewtext {
+  margin-bottom: 20px;
+}
+
+.reactions {
+  display: flex;
+  align-items: center;
+}
+.likecounter,
+.dislikecounter {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+.thumbsup,
+.thumbsdown {
+  background-color: var(--blueOne);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.thumbsup i,
+.thumbsdown i {
+  margin-right: 5px;
+}
+
+.regform {
+  margin-top: 50px;
+  max-width: 400px;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 600px;
+  display: block;
+}
+
+.regform h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.regform label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.regform input[type="text"],
+.regform input[type="email"],
+.regform input[type="password"],
+.regform select {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.regform select {
+  padding-right: 30px;
+}
+
+.submitregbutton {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--blueOne);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.submitregbutton:hover {
+  background-color: var(--blueFive);
+}
+
+.regcontainer {
+  display: flex;
+  justify-content: center;
+  height: 800px;
+}
+
+.loginsectionforloginpage {
+  display: none;
+  position: absolute;
+  top: 0;
+  margin-top: 235px;
+  margin-left: 31%;
+}
+
+#grey {
+  background-color: #888;
+}
+
+#grey:hover {
+  cursor: auto;
+}
+
+#valerror {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.loginemailerror {
+  display: none;
+}
+
+.wrongpassword {
+  display: none;
+}
+
+.usernameerror {
+  display: none;
+}
+
+.emailerror {
+  display: none;
+}
+
+.passworderror {
+  display: none;
 }

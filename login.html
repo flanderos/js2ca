@@ -5,70 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styling/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&family=Molengo&family=Monoton&family=Neucha&family=Poppins:wght@600&family=Roboto+Mono:wght@100;700&family=Roboto+Slab&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/00a541403c.js"
+      crossorigin="anonymous"
+    ></script>
     <title>The Noroff Student FaceCommunityBook Inc.</title>
   </head>
   <body>
-    <header>
+    <header id="header">
       <div class="headerimg"></div>
       <nav>
         <ul>
-          <a href="index.html"><li>Home</li></a>
-          <li>Community</li>
-          <li>Blog</li>
-          <li>Contact us</li>
+          <a href="index.html">Home</li></a>
+          <a href="community.html"><li>Community</li></a>
+          <a href="blog.html"><li>Blog</li></a>
         </ul>
       </nav>
       <div class="headericons">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div><i class="fa-brands fa-facebook"></i></div>
+        <div><i class="fa-brands fa-twitter"></i></div>
+        <div><i class="fa-brands fa-linkedin"></i></div>
+        <div><i class="fa-brands fa-pinterest-p"></i></div>
+        <div><i class="fa-brands fa-square-instagram"></i></div>
+        <div class="searchicon"></div>
+        <div class="loginbuttontop" id ="grey">Login</div>
+        <a href="login.html"><div class="registerbuttontop" id="grey">Register</div></a>
       </div>
     </header>
-    <section>
-      <div class="formcontainer">
-        <form>
-          <h2>Sign in</h2>
-          <label for="email">Your E-mail</label>
-          <input type="email" class="emailinput" id="emailinput" />
-          <label for="password">Password</label>
-          <input type="email" class="emailinput" id="emailinput" />
-          <label for="checkbox">Remember me</label>
-          <input type="checkbox" />
-          <button type="submit" class="submitbtn" id="submitlogin">
-            Login
-          </button>
-        </form>
-      </div>
-    </section>
-
     <!-- REGISTRATION -->
-    <form class="regform">
-      <h2>Sign Up</h2>
-      <label for="firstname">First name</label>
-      <input type="text" class="firstnameinput" id="fnameregform" />
-      <label for="lastname">Last Name</label>
-      <input type="text" class="lastnameinput" id="lastnameregform" />
-      <label for="email">E-mail</label>
-      <input type="email" class="emailreginput" id="emailregform" />
-      <label for="firstname">Password</label>
-      <input type="password" class="passwordinput" id="passwordregform" />
-      <label for="gender">gender</label>
-      <select name="cars" id="cars">
-        <option value="audi">No I wish not to tell!</option>
-        <option value="volvo">Male</option>
-        <option value="saab">Female</option>
-        <option value="mercedes">Agender</option>
-        <option value="audi">Genderfluid</option>
-        <option value="audi">Nonbinary</option>
-        <option value="audi">Transgender</option>
-        <option value="audi">Genderqueer</option>
-        <option value="audi">Two-Spirit</option>
-        <option value="audi">Demigender</option>
-      </select>
-      <button type="button" class="submitregbutton">Register</button>
-    </form>
+    <div class="regcontainer">
+      <form class="regform">
+        <h2>Sign Up</h2>
+        <label for="username">Username</label>
+        <input type="text" class="nameinput" id="nameregform" />
+        <div class="usernameerror" id="valerror">Username must contain at least 2 letters</div>
+        <label for="email">E-mail</label>
+        <input type="email" class="emailreginput" id="emailregform" />
+        <div class="emailerror" id="valerror">please enter a valid email</div>
+        <label for="password">Password</label>
+        <input type="password" class="passwordinput" id="passwordregform" />
+        <div class="passworderror" id="valerror">at least 6 letters</div>
+        <button type="button" class="submitregbutton">Register</button>
+        
+      </form>
+    </div>
     <!-- REGISTRATION -->
 
     <footer>
@@ -107,5 +93,7 @@
       </div>
     </footer>
     <script src="javascript/script.js"></script>
+    <script src="javascript/login.js"></script>
+    <script src="javascript/validation.js"></script>
   </body>
 </html>

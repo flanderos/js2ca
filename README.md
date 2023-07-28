@@ -17,3 +17,5 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Roboto Mono', monospace;
 font-family: 'Roboto Slab', serif;
 font-family: 'Russo One', sans-serif;
+
+background-color: #d4d4d4;
