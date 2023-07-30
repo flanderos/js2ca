@@ -16,6 +16,7 @@ body {
   overflow-x: hidden;
   max-width: 1900px;
   transition: 0.3s;
+  border: 1px solid black;
 }
 
 a {
@@ -37,20 +38,19 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: var(--blueOne);
-  color: var(--white);
+  color: #fff;
   font-family: "Poppins", sans-serif;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  width: 100%;
+  max-width: 1900px;
 }
 
 .headerimg {
   height: 160px;
   width: 160px;
-  background-image: url(/images/logo.png);
+  background-image: url(/images/logo2.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: 25px;
 }
 
 ul {
@@ -61,6 +61,7 @@ ul {
   justify-content: center;
   font-size: 1.1rem;
   font-weight: 500;
+  padding-left: 0;
 }
 
 .headericons {
@@ -95,6 +96,10 @@ ul {
   padding-left: 10px;
   border-bottom: 10px solid var(--blueOne);
   transition: 0.3s;
+}
+
+.margin-top {
+  margin-top: 50px;
 }
 
 .landingsectionbox {
@@ -159,8 +164,6 @@ ul {
   align-items: center;
   font-family: "Roboto Slab", serif;
   margin-bottom: 50px;
-
-  padding-left: 5px;
 }
 
 .sectiontwoheading {
@@ -169,6 +172,7 @@ ul {
 
 .bigdiv2 {
   flex: 1;
+  padding-left: 5px;
 }
 
 .secondsectionimage {
@@ -180,9 +184,8 @@ ul {
   height: 400px;
   flex: 1;
   padding: 5px;
-  opacity: 20%;
+
   border-radius: 50%;
-  mask-image: linear-gradient(rgb(255, 255, 25rgba (255, 255, 255, 0), 0));
 }
 
 .whytxt {
@@ -249,7 +252,7 @@ header .loginbutton {
 }
 
 .blogsection {
-  height: 800px;
+  min-height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -284,8 +287,6 @@ header .loginbutton {
 
 .cardcontainer {
   width: 90%;
-  height: 600px;
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -297,7 +298,6 @@ header .loginbutton {
   width: 30%;
   display: flex;
   flex-direction: column;
-
   gap: 20px;
   padding: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
@@ -325,20 +325,11 @@ header .loginbutton {
   font-family: "Molengo", sans-serif;
 }
 
-.object {
-  height: 10px;
-  width: 1600px;
-  background-color: #005073;
-  position: absolute;
-  top: 0;
-  margin-top: 200px;
-}
-
 footer {
   color: #fff;
   background-color: #005073;
   height: 600px;
-  border-radius: 5px 30px 0px 0px;
+  max-width: 1900px;
 }
 
 .footerheading {
@@ -396,19 +387,18 @@ nav ul li:hover {
 /* SIGN IN/SIGN UP FORM */
 
 .loginsection {
-  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
   position: absolute;
   top: 0;
-  margin-top: 400px;
-  margin-right: 100px;
-  transform: translateX(-3000px);
+  right: 0;
+  margin-top: 200px;
+  margin-right: 50px;
   color: #005073;
   transition: 0.5s;
-  z-index: 2;
+  z-index: 200;
   opacity: 100%;
 }
 
@@ -427,6 +417,7 @@ form {
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
+  z-index: 100;
 }
 
 input {
@@ -443,6 +434,7 @@ form .submitbtn {
   font-weight: 700;
   margin-top: 20px;
   border-radius: 5px;
+  z-index: 1000;
 }
 
 form .submitbtn:hover {
@@ -642,4 +634,119 @@ form .submitbtn:hover {
 
 .passworderror {
   display: none;
+}
+
+.hamburgericon i {
+  font-size: 2rem;
+  display: none;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 960px) {
+  .hamburgericon i {
+    font-size: 2rem;
+    display: block;
+    z-index: 1;
+  }
+
+  .hamburgericon i:hover {
+    cursor: pointer;
+  }
+
+  .whytxt {
+    width: 90%;
+  }
+
+  nav {
+    width: 100%;
+    position: absolute;
+    transform: translateY(-150px);
+  }
+
+  .checked {
+    transform: translateY(100px);
+    background-color: #005073;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blogpost {
+    width: 50%;
+  }
+
+  .secondsection {
+    flex-direction: column;
+    margin-top: 50px;
+    justify-content: center;
+    height: 900px;
+  }
+
+  .divone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blogsection {
+    margin-top: 50px;
+    align-items: stretch;
+  }
+
+  .cardcontainer {
+    flex-direction: column;
+  }
+
+  .topsectionthreediv {
+    flex-direction: row-reverse;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .dnone {
+    display: none;
+  }
+
+  .blogpost {
+    width: 90%;
+  }
+
+  .blogsection {
+    width: 100%;
+  }
+
+  .loginbutton {
+    width: 320px;
+  }
+
+  .loginsection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    top: 50%;
+    left: 50%;
+    margin-right: 100px;
+    transform: translateX(-3000px);
+    color: #005073;
+    transition: 0.5s;
+    z-index: 20;
+    opacity: 100%;
+    background-color: #fff;
+  }
+
+  form {
+    background-color: #fff;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header {
+    flex-direction: column;
+  }
+
+  .checked {
+    transform: translateY(250px);
+  }
 }

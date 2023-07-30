@@ -1,16 +1,28 @@
 const loginContainer = document.querySelector(".loginsection");
 const loginButton = document.querySelector(".loginbuttontop");
 const firstSection = document.querySelector(".landingsection");
+const navBar = document.querySelector("nav");
+const hamburger = document.querySelector(".hamburgericon");
+let checkForMenu = false;
+const headerIcons = document.querySelector(".dnone");
 
-const showLogin = () => {
-  loginContainer.style.transform = "translateX(0)";
-  if ((loginContainer.style.right = "0")) {
-    loginButton.style.cursor = "default";
-    loginButton.style.backgroundColor = "grey";
-    firstSection.style.opacity = "15%";
+const toggleMenu = () => {
+  if (checkForMenu) {
+    hideMenu();
+  } else {
+    showMenu();
   }
 };
 
-loginButton.addEventListener("click", showLogin);
+const showMenu = () => {
+  navBar.classList.add("checked");
+  navBar.style.transition = "0.5s";
+  checkForMenu = true;
+};
 
-const url = "https://api.noroff.dev/api";
+const hideMenu = () => {
+  navBar.classList.remove("checked");
+  checkForMenu = false;
+};
+
+hamburger.addEventListener("click", toggleMenu);

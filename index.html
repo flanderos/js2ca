@@ -23,19 +23,20 @@
       <nav>
         <ul>
           <li class="active">Home</li>
-          <a href="community.html"><li>Community</li></a>
-          <a href="blog.html"><li>Blog</li></a>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="blog.html">Blog</a></li>
         </ul>
       </nav>
       <div class="headericons">
-        <div><i class="fa-brands fa-facebook"></i></div>
-        <div><i class="fa-brands fa-twitter"></i></div>
-        <div><i class="fa-brands fa-linkedin"></i></div>
-        <div><i class="fa-brands fa-pinterest-p"></i></div>
-        <div><i class="fa-brands fa-square-instagram"></i></div>
+        <div class="dnone"><i class="fa-brands fa-facebook"></i></div>
+        <div class="dnone"><i class="fa-brands fa-twitter"></i></div>
+        <div class="dnone"><i class="fa-brands fa-linkedin"></i></div>
+        <div class="dnone"><i class="fa-brands fa-pinterest-p"></i></div>
+        <div class="dnone"><i class="fa-brands fa-square-instagram"></i></div>
         <div class="searchicon"></div>
         <div class="loginbuttontop">Login</div>
         <a href="login.html"><div class="registerbuttontop">Register</div></a>
+        <div class="hamburgericon"><i class="fa-solid fa-bars"></i></div>
       </div>
     </header>
     <section class="landingsection">
@@ -52,24 +53,20 @@
       </div>
     </section>
     <section class="loginsection">
-      <div class="formcontainer">
-        <form>
-          <h2>Sign in</h2>
-          <label for="email">Your E-mail</label>
-          <input type="email" class="emailinput" id="emailinput" />
-          <div class="loginemailerror" id="valerror">Enter a valid email</div>
-          <label for="password">Password</label>
-          <input type="password" class="passwordinput" id="passwordinput" />
-          <div class="wrongpassword" id="valerror">Wrong password</div>
-          <div class="line">
-            <label for="checkbox">Remember me</label>
-            <input type="checkbox" />
-          </div>
-          <button type="submit" class="submitbtn" id="submitlogin">
-            Login
-          </button>
-        </form>
-      </div>
+      <form>
+        <h2>Sign in</h2>
+        <label for="email">Your E-mail</label>
+        <input type="email" class="emailinput" id="emailinput" />
+        <div class="loginemailerror" id="valerror">Enter a valid email</div>
+        <label for="password">Password</label>
+        <input type="password" class="passwordinput" id="passwordinput" />
+        <div class="wrongpassword" id="valerror">Wrong password</div>
+        <div class="line">
+          <label for="checkbox">Remember me</label>
+          <input type="checkbox" />
+        </div>
+        <button type="button" class="submitbtn" id="submitlogin">Login</button>
+      </form>
     </section>
     <section class="secondsection">
       <div class="bigdiv2">
@@ -163,10 +160,9 @@
           </div>
         </div>
       </div>
-      <div class="object"></div>
-      <div class="objecttwo"></div>
     </footer>
     <script src="javascript/script.js"></script>
     <script src="javascript/validation.js"></script>
+    <script src="javascript/login.js"></script>
   </body>
 </html>
