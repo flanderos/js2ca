@@ -19,3 +19,11 @@ font-family: 'Roboto Slab', serif;
 font-family: 'Russo One', sans-serif;
 
 background-color: #d4d4d4;
+
+{
+"id": 2017,
+"name": "andersto",
+"email": "andersto@stud.noroff.no",
+"banner": null,
+"avatar": null
+}

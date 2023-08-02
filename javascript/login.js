@@ -91,7 +91,9 @@ function validateForm(event) {
 
 validateForm();
 
-regButton.addEventListener("click", validateForm);
+if (regButton) {
+  regButton.addEventListener("click", validateForm);
+}
 
 function validateEmail(email) {
   const regEx = /\S+@\S+\.\S+/;
@@ -110,12 +112,65 @@ function validateName(nameInput) {
 const emailInputForLogin = document.querySelector("#emailinput");
 const passwordInputForLogin = document.querySelector("#passwordinput");
 const loginButtonForUsers = document.querySelector("#submitlogin");
+const loginForm = document.querySelector(".loginform");
+const loginError = document.querySelector(".loginerror");
 
-const registeredUserEmail = emailInputForLogin.value;
-const registeredUserPassword = passwordInputForLogin.value;
+let isUserLoggedIn = false;
 
-const loginUser = () => {
-  console.log("knappen fungerer");
+const updateHeaderButtons = () => {
+  const loginButton = document.querySelector(".loginbuttontop");
+  const logoutButton = document.querySelector(".logoutButton");
+
+  if (isUserLoggedIn) {
+    loginButton.style.display = "none";
+    logoutButton.style.display = "block";
+  } else {
+    loginButton.style.display = "block";
+    logoutButton.style.display = "none";
+  }
 };
 
-loginButtonForUsers.addEventListener("click", loginUser);
+const loginUser = (event) => {
+  event.preventDefault();
+
+  const userEmail = emailInputForLogin.value;
+  const userPassword = passwordInputForLogin.value;
+
+  const userData = {
+    email: userEmail,
+    password: userPassword,
+  };
+
+  const loginUrl = "https://api.noroff.dev/api/v1/social/auth/login";
+
+  fetch(loginUrl, {
+    method: "POST",
+    body: JSON.stringify(userData),
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const accessToken = data.accessToken;
+      console.log("Login successful. Access Token:", accessToken);
+
+      localStorage.setItem("accessToken", accessToken);
+
+      window.location.href = "blog.html";
+    })
+    .catch((error) => {
+      console.error("Error logging in user:", error);
+
+      loginError.style.display = "block";
+    });
+};
+
+if (loginForm) {
+  loginForm.addEventListener("submit", loginUser);
+}

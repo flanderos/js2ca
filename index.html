@@ -34,7 +34,8 @@
         <div class="dnone"><i class="fa-brands fa-pinterest-p"></i></div>
         <div class="dnone"><i class="fa-brands fa-square-instagram"></i></div>
         <div class="searchicon"></div>
-        <div class="loginbuttontop">Login</div>
+        <div class="loginbuttontop" id="button">Login</div>
+        <div class="logoutButton" id="button">Logout</div>
         <a href="login.html"><div class="registerbuttontop">Register</div></a>
         <div class="hamburgericon"><i class="fa-solid fa-bars"></i></div>
       </div>
@@ -53,7 +54,7 @@
       </div>
     </section>
     <section class="loginsection">
-      <form>
+      <form class="loginform">
         <h2>Sign in</h2>
         <label for="email">Your E-mail</label>
         <input type="email" class="emailinput" id="emailinput" />
@@ -65,7 +66,10 @@
           <label for="checkbox">Remember me</label>
           <input type="checkbox" />
         </div>
-        <button type="button" class="submitbtn" id="submitlogin">Login</button>
+        <div class="loginerror" id="loginerror">
+          Incorrect username or password
+        </div>
+        <button type="submit" class="submitbtn" id="submitlogin">Login</button>
       </form>
     </section>
     <section class="secondsection">

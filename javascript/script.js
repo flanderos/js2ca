@@ -25,4 +25,6 @@ const hideMenu = () => {
   checkForMenu = false;
 };
 
-hamburger.addEventListener("click", toggleMenu);
+if (hamburger) {
+  hamburger.addEventListener("click", toggleMenu);
+}
