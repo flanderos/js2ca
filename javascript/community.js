@@ -1,6 +1,8 @@
 let userName = document.querySelector("#pname");
+const allUsersUrl = url + "/social/profiles";
 const userUrl = url + "/social/profiles?limit=10";
 const showMoreButton = document.querySelector(".showmorebutton");
+const userCounter = document.querySelector(".counter");
 
 let loadedProfiles = 10;
 let perPage = 10;
@@ -34,7 +36,8 @@ async function getUserData(pageNumber) {
     let following = results[i]._count.following;
     let posts = results[i]._count.posts;
 
-    profileCard.innerHTML += `<div class="profilebox"><img class="profile-image" src="${userImage}" onerror="this.src='/images/placeholderimg.png'" alt="profilepicture" />
+    if (profileCard) {
+      profileCard.innerHTML += `<div class="profilebox"><img class="profile-image" src="${userImage}" onerror="this.src='/images/placeholderimg.png'" alt="profilepicture" />
     <h2 class="username" id="username">${userName}</h2>
     <p class="userfollowers" id="userdata">Followers:${followers}</p>
     <p class="userfollwing" id="userdata">Following: ${following}</p>
@@ -42,12 +45,26 @@ async function getUserData(pageNumber) {
     <p class="useremail" id="userdata">${userEmail}</p>
     <button class="follow" type="button" id="follow">Follow</button></div>
     `;
+    }
   }
 }
 
 getUserData(userUrl);
 
-showMoreButton.addEventListener("click", function () {
-  loadedProfiles += perPage;
-  getUserData();
-});
+if (showMoreButton) {
+  showMoreButton.addEventListener("click", function () {
+    loadedProfiles += perPage;
+    getUserData();
+  });
+}
+
+async function getAllUsers() {
+  const response = await fetch(allUsersUrl, options);
+  const results = await response.json();
+
+  const totalUsers = results.length;
+
+  userCounter.innerHTML = `${totalUsers}`;
+}
+
+getAllUsers();

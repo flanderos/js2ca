@@ -80,7 +80,8 @@ ul {
   justify-content: center;
   border-radius: 5px;
   text-decoration: none;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .loginbutton a {
@@ -193,10 +194,6 @@ ul {
   font-style: italic;
 }
 
-header .loginbutton {
-  color: #000000;
-}
-
 .loginbuttontop {
   width: 150px;
   height: 35px;
@@ -222,6 +219,8 @@ header .loginbutton {
   background-color: #107dac;
   transition: 0.3s;
   border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .registerbuttontop:hover {
@@ -242,6 +241,8 @@ header .loginbutton {
   color: #fff;
   background-color: #107dac;
   transition: 0.3s;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .loginbuttontop:hover {
@@ -359,11 +360,15 @@ footer {
 }
 
 .subscribebutton {
+  border: none;
+  border-radius: 5px;
   height: 34px;
   width: 200px;
   padding: 0;
   border-width: 0;
   margin-left: 15px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .subscribebutton:hover {
@@ -446,6 +451,34 @@ form .submitbtn:hover {
   cursor: pointer;
 }
 
+.searchprofilesbox {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  height: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.searchbutton {
+  width: 120px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.searchbutton:hover {
+  cursor: pointer;
+}
+
+#profilesearch {
+  padding: 0;
+  height: 27px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
 /* Profilepage */
 
 .profilebox {
@@ -459,6 +492,7 @@ form .submitbtn:hover {
 .profiles {
   display: flex;
   flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
   margin-top: 20px;
   font-family: "Roboto Mono", monospace;
@@ -592,17 +626,14 @@ form .submitbtn:hover {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: var(--blueOne);
-  color: #fff;
+  color: #000000;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: 0.3s;
   margin-top: 10px;
-}
-
-.submitregbutton:hover {
-  background-color: var(--blueFive);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .regcontainer {
@@ -665,6 +696,8 @@ form .submitbtn:hover {
 
 .logoutButton {
   display: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .profilebox {
@@ -681,6 +714,37 @@ form .submitbtn:hover {
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
     rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.showmorebutton {
+  height: 30px;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 40px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.showmorebutton:hover {
+  cursor: pointer;
+}
+
+#follow {
+  background-color: #005073;
+  color: #fff;
+  height: 30px;
+  width: 100px;
+  transition: 0.3s;
+  border: none;
+  border-radius: 5px;
+}
+
+#follow:hover {
+  cursor: pointer;
+  background-color: #107dac;
 }
 
 /* Responsive */

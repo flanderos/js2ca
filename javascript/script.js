@@ -28,3 +28,11 @@ const hideMenu = () => {
 if (hamburger) {
   hamburger.addEventListener("click", toggleMenu);
 }
+
+const subscribeButton = document.querySelector(".subscribebutton");
+
+const errorPopUp = () => {
+  alert("Sorry. This does not work yet");
+};
+
+subscribeButton.addEventListener("click", errorPopUp);
