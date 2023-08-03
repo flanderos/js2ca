@@ -40,195 +40,45 @@
         <div class="hamburgericon"><i class="fa-solid fa-bars"></i></div>
       </div>
     </header>
+    <div class="flexdiv">
     <section class="profilebox">
-      <div class="container">
-        <div class="createbutton">
-          <a href="create.html" class="createpostlink">Create post</a>
-        </div>
-        <div class="profilepicture"></div>
-        <h5 class="profilename" id="pname">Anders Hellerud</h5>
-        <div class="profilestats">
-          <li class="numberofposts"></li>
-          <li class="numberofcomments"></li>
-          <li class="numberofprofileviews"></li>
+      <div class="profilepicture"></div>
+      <h5 class="profilename" id="pname">Anders Hellerud</h5>
+      <div class="profilestats">
+        <li class="numberofposts"></li>
+        <li class="numberofcomments"></li>
+        <li class="numberofprofileviews"></li>
+        <form class="createpost">
+          <h3>Create a post</h3>
+        <label for="posttitle">Title</label>
+        <input type="text" class="posttext" id="posttitle">
+        <div class="titleerror" id="valerror">Title must contain min 2 max 10 letters</div>
+        <label for="posttext">Text</label>
+        <textarea type="text" id="posttext"></textarea>
+        <div class="texterror" id="valerror">Max 250 words</div>
+        <label for="posttags">Tags</label>
+        <input type="text" id="tags">
+        <div class="tagerror" id="valerror">Max 25 letters</div>
+        <label for="Media">Media</label>
+        <input type="image" id="postmedia">
+        <button class="createpostlink">Create post</button>
+      </form>
+      </section>
+      <div class="sortbox">
+        <div class="totalpostcounter">Total 20 posts</div>
+        <div class="sortfunction">
+          <p>Order By</p>
         </div>
       </div>
-    </section>
-    <div class="sortbox">
-      <div class="totalpostcounter">Total 20 posts</div>
-      <div class="sortfunction">
-        <p>Order By</p>
+        <div class="container"></div>
+        <button class="loadmorebutton">Load More Posts</button>
       </div>
-    </div>
-    <section class="postfeed">
+   
       <!-- BLOGPOST -->
 
-      <div class="container">
-        <div class="createbutton"></div>
-        <div class="postbox">
-          <div class="posttags">
-            <div class="tag">art</div>
-          </div>
-          <h2 class="postpreviewheading">This is a blogpost heading</h2>
-          <div class="postcreator">Anders</div>
-          <div class="postdatetime"></div>
-          <p class="postpreviewtext">
-            This is some random text about a completely fine and normal post
-          </p>
-          <div class="reactions">
-            <div class="likecounter">2</div>
-            <div class="thumbsup">
-              Like<i class="fa-solid fa-thumbs-up"></i>
-            </div>
-            <div class="dislikecounter">0</div>
-            <div class="thumbsdown">
-              Dislike<i class="fa-solid fa-thumbs-down"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="postbox">
-          <div class="posttags">
-            <div class="tag">art</div>
-          </div>
-          <h2 class="postpreviewheading">This is a blogpost heading</h2>
-          <div class="postcreator">Anders</div>
-          <div class="postdatetime"></div>
-          <p class="postpreviewtext">
-            This is some random text about a completely fine and normal post
-          </p>
-          <div class="reactions">
-            <div class="likecounter">2</div>
-            <div class="thumbsup">
-              Like<i class="fa-solid fa-thumbs-up"></i>
-            </div>
-            <div class="dislikecounter">0</div>
-            <div class="thumbsdown">
-              Dislike<i class="fa-solid fa-thumbs-down"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="postbox">
-          <div class="posttags">
-            <div class="tag">art</div>
-          </div>
-          <h2 class="postpreviewheading">This is a blogpost heading</h2>
-          <div class="postcreator">Anders</div>
-          <div class="postdatetime"></div>
-          <p class="postpreviewtext">
-            This is some random text about a completely fine and normal post
-          </p>
-          <div class="reactions">
-            <div class="likecounter">2</div>
-            <div class="thumbsup">
-              Like<i class="fa-solid fa-thumbs-up"></i>
-            </div>
-            <div class="dislikecounter">0</div>
-            <div class="thumbsdown">
-              Dislike<i class="fa-solid fa-thumbs-down"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="postbox">
-          <div class="posttags">
-            <div class="tag">art</div>
-          </div>
-          <h2 class="postpreviewheading">This is a blogpost heading</h2>
-          <div class="postcreator">Anders</div>
-          <div class="postdatetime"></div>
-          <p class="postpreviewtext">
-            This is some random text about a completely fine and normal post
-          </p>
-          <div class="reactions">
-            <div class="likecounter">2</div>
-            <div class="thumbsup">
-              Like<i class="fa-solid fa-thumbs-up"></i>
-            </div>
-            <div class="dislikecounter">0</div>
-            <div class="thumbsdown">
-              Dislike<i class="fa-solid fa-thumbs-down"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="postbox">
-          <div class="posttags">
-            <div class="tag">art</div>
-          </div>
-          <h2 class="postpreviewheading">This is a blogpost heading</h2>
-          <div class="postcreator">Anders</div>
-          <div class="postdatetime"></div>
-          <p class="postpreviewtext">
-            This is some random text about a completely fine and normal post
-          </p>
-          <div class="reactions">
-            <div class="likecounter">2</div>
-            <div class="thumbsup">
-              Like<i class="fa-solid fa-thumbs-up"></i>
-            </div>
-            <div class="dislikecounter">0</div>
-            <div class="thumbsdown">
-              Dislike<i class="fa-solid fa-thumbs-down"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="postbox">
-          <div class="posttags">
-            <div class="tag">art</div>
-          </div>
-          <h2 class="postpreviewheading">This is a blogpost heading</h2>
-          <div class="postcreator">Anders</div>
-          <div class="postdatetime"></div>
-          <p class="postpreviewtext">
-            This is some random text about a completely fine and normal post
-          </p>
-          <div class="reactions">
-            <div class="likecounter">2</div>
-            <div class="thumbsup">
-              Like<i class="fa-solid fa-thumbs-up"></i>
-            </div>
-            <div class="dislikecounter">0</div>
-            <div class="thumbsdown">
-              Dislike<i class="fa-solid fa-thumbs-down"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="postbox">
-          <div class="posttags">
-            <div class="tag">art</div>
-          </div>
-          <h2 class="postpreviewheading">This is a blogpost heading</h2>
-          <div class="postcreator">Anders</div>
-          <div class="postdatetime"></div>
-          <p class="postpreviewtext">
-            This is some random text about a completely fine and normal post
-          </p>
-          <div class="reactions">
-            <div class="likecounter">2</div>
-            <div class="thumbsup">
-              Like<i class="fa-solid fa-thumbs-up"></i>
-            </div>
-            <div class="dislikecounter">0</div>
-            <div class="thumbsdown">
-              Dislike<i class="fa-solid fa-thumbs-down"></i>
-            </div>
-          </div>
-        </div>
-      </div>
       <!-- BLOGPOST -->
-
-      <button class="loadmorebutton">Load More Posts</button>
-    </section>
+    
+  </div>
     <footer>
       <div class="footerdivone">
         <h1 class="footerheading">Subscribe to our big brain newsletter</h1>
@@ -263,6 +113,7 @@
           </div>
         </div>
       </div>
+      
     </footer>
     <script src="javascript/script.js"></script>
     <script src="javascript/validation.js"></script>
