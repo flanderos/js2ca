@@ -64,7 +64,9 @@ async function getAllUsers() {
 
   const totalUsers = results.length;
 
-  userCounter.innerHTML = `${totalUsers}`;
+  if (userCounter) {
+    userCounter.innerHTML = `${totalUsers}`;
+  }
 }
 
 getAllUsers();
