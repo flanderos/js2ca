@@ -52,15 +52,15 @@
           <h3>Create a post</h3>
         <label for="posttitle">Title</label>
         <input type="text" class="posttext" id="posttitle">
-        <div class="titleerror" id="valerror">Title must contain min 2 max 10 letters</div>
+        <div class="titleerror" id="valerror">Title must contain min 2 max 25 letters</div>
         <label for="posttext">Text</label>
         <textarea type="text" id="posttext"></textarea>
-        <div class="texterror" id="valerror">Max 250 words</div>
+        <div class="texterror" id="valerror">Minimum 2 letters, Max 250 letters</div>
         <label for="posttags">Tags</label>
         <input type="text" id="tags">
-        <div class="tagerror" id="valerror">Max 25 letters</div>
-        <label for="Media">Media</label>
-        <input type="image" id="postmedia">
+        <div class="tagerror" id="valerror">Minimum 2 letters, Max 25 letters</div>
+   <!--      <label for="Media">Media</label>
+        <input type="image" id="postmedia"> -->
         <button class="createpostlink">Create post</button>
       </form>
       </section>
@@ -120,5 +120,6 @@
     <script src="javascript/login.js"></script>
     <script src="javascript/community.js"></script>
     <script src="javascript/blog.js"></script>
+    <script src="javascript/createpost.js"></script>
   </body>
 </html>
