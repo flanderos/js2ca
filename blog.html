@@ -24,7 +24,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="community.html">Community</a></li>
-          <li class="active"><a href="blog.html">Blog</a></li>
+          <li class="active">Blog</li>
         </ul>
       </nav>
       <div class="headericons">
@@ -59,8 +59,9 @@
         <label for="posttags">Tags</label>
         <input type="text" id="tags">
         <div class="tagerror" id="valerror">Minimum 2 letters, Max 25 letters</div>
-   <!--      <label for="Media">Media</label>
-        <input type="image" id="postmedia"> -->
+         <label for="Media">Media</label>
+        <input type="url" id="postmedia"> 
+        <div class="mediaerror" id="valerror">Enter a valid url</div>
         <button class="createpostlink">Create post</button>
       </form>
       </section>
@@ -116,7 +117,6 @@
       
     </footer>
     <script src="javascript/script.js"></script>
-    <script src="javascript/validation.js"></script>
     <script src="javascript/login.js"></script>
     <script src="javascript/community.js"></script>
     <script src="javascript/blog.js"></script>

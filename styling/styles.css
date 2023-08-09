@@ -690,6 +690,10 @@ form .submitbtn:hover {
   cursor: auto;
 }
 
+.mediaerror {
+  display: none;
+}
+
 #valerror {
   color: red;
   font-size: 0.8rem;

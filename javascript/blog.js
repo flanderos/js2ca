@@ -38,7 +38,7 @@ async function getBlogPosts() {
       <h2 class="postpreviewheading">${title}</h2>
       <div class="postcreator"></div>
       <div class="postdatetime">${date}</div>
-      <div class="postmedia"><img class="postmedia" src="${media}"></div>
+      <div class="postmedia"><img class="postmedia" src="${media}" onerror="this.src='/images/mediaplaceholder.png'"></div>
       <p class="postpreviewtext">
         ${body}
       </p>
@@ -81,27 +81,27 @@ const loadMorePosts = async () => {
       let comments = results[i]._count.comments;
 
       blogFeed.innerHTML += `
-          <div class="container">
-            <div class="postbox">
-              <div class="posttags">
-                <div class="tag">${tags}</div>
-              </div>
-              <h2 class="postpreviewheading">${title}</h2>
-              <div class="postcreator"></div>
-              <div class="postdatetime">${date}</div>
-              <div class="postmedia"><img class="postmedia" src="${media}"></div>
-              <p class="postpreviewtext">
-                ${body}
-              </p>
-              <div class="reactions">
-                <div class="likecounter">${reactions}</div>
-                <div class="thumbsup">
-                  Like<i class="fa-solid fa-thumbs-up"></i>
-                </div>
-                <div class="comments">${comments}</div>
-              </div>
-            </div>
-          </div>`;
+      <div class="container">
+      <div class="postbox">
+        <div class="posttags">
+          <div class="tag">${tags}</div>
+        </div>
+        <h2 class="postpreviewheading">${title}</h2>
+        <div class="postcreator"></div>
+        <div class="postdatetime">${date}</div>
+        <div class="postmedia"><img class="postmedia" src="${media}" onerror="this.src='/images/mediaplaceholder.png'"></div>
+        <p class="postpreviewtext">
+          ${body}
+        </p>
+        <div class="reactions">
+          <div class="likecounter">${reactions}</div>
+          <div class="thumbsup" id="posticons">
+            Like<i class="fa-solid fa-thumbs-up"></i>
+          </div>
+          <div class="comments"><div class="commentbutton" id="posticons">Comment<i class="fa-solid fa-comment"></i></i></div></div>
+        </div>
+      </div>
+    </div>`;
     }
   } catch (error) {
     console.error("Feil under lasting av innlegg:", error);
