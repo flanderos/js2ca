@@ -596,6 +596,22 @@ form .submitbtn:hover {
   cursor: pointer;
   margin-left: 10px;
 }
+
+#posticons i {
+  margin-left: 5px;
+}
+
+.deletebutton {
+  background-color: red;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  border: none;
+  height: 28px;
+}
+
 .thumbsup i,
 .thumbsdown i {
   margin-right: 5px;
@@ -627,6 +643,10 @@ form .submitbtn:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   height: 600px;
   display: block;
+}
+
+.postId {
+  color: #fff;
 }
 
 .regform h2 {

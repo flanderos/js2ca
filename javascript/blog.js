@@ -21,6 +21,7 @@ async function getBlogPosts() {
   const results = await response.json();
 
   for (let i = 0; i < results.length; i++) {
+    let postId = results[i].id;
     let tags = results[i].tags;
     let title = results[i].title;
     let date = results[i].created;
@@ -29,28 +30,38 @@ async function getBlogPosts() {
     let reactions = results[i]._count.reactions;
     let comments = results[i]._count.comments;
 
-    blogFeed.innerHTML += `      
+    blogFeed.innerHTML += `
     <div class="container">
-    <div class="postbox">
-      <div class="posttags">
-        <div class="tag">${tags}</div>
-      </div>
-      <h2 class="postpreviewheading">${title}</h2>
-      <div class="postcreator"></div>
-      <div class="postdatetime">${date}</div>
-      <div class="postmedia"><img class="postmedia" src="${media}" onerror="this.src='/images/mediaplaceholder.png'"></div>
-      <p class="postpreviewtext">
-        ${body}
-      </p>
-      <div class="reactions">
-        <div class="likecounter">${reactions}</div>
-        <div class="thumbsup" id="posticons">
-          Like<i class="fa-solid fa-thumbs-up"></i>
+      <div class="postbox" data-post-id="${results[i].id}">
+        <div class="posttags">
+          <div class="tag">${tags}</div>
         </div>
-        <div class="comments"><div class="commentbutton" id="posticons">Comment<i class="fa-solid fa-comment"></i></i></div></div>
+        <div class="postId">${results[i].id}</div>
+        <h2 class="postpreviewheading">${title}</h2>
+        <div class="postcreator"></div>
+        <div class="postdatetime">${date}</div>
+        <div class="postmedia">
+          <img class="postmedia" src="${media}" onerror="this.src='/images/mediaplaceholder.png'">
+        </div>
+        <p class="postpreviewtext">
+          ${body}
+        </p>
+        <div class="reactions">
+          <div class="likecounter">${reactions}</div>
+          <div class="thumbsup" id="posticons">
+            Like<i class="fa-solid fa-thumbs-up"></i>
+          </div>
+          <div class="comments">
+            <div class="commentbutton" id="posticons">
+              Comment<i class="fa-solid fa-comment"></i>
+            </div>
+          </div>
+          <button class="deletebutton">
+            Delete<i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
       </div>
-    </div>
-  </div>`;
+    </div>`;
   }
 }
 
@@ -82,30 +93,64 @@ const loadMorePosts = async () => {
 
       blogFeed.innerHTML += `
       <div class="container">
-      <div class="postbox">
-        <div class="posttags">
-          <div class="tag">${tags}</div>
-        </div>
-        <h2 class="postpreviewheading">${title}</h2>
-        <div class="postcreator"></div>
-        <div class="postdatetime">${date}</div>
-        <div class="postmedia"><img class="postmedia" src="${media}" onerror="this.src='/images/mediaplaceholder.png'"></div>
-        <p class="postpreviewtext">
-          ${body}
-        </p>
-        <div class="reactions">
-          <div class="likecounter">${reactions}</div>
-          <div class="thumbsup" id="posticons">
-            Like<i class="fa-solid fa-thumbs-up"></i>
+        <div class="postbox" data-post-id="${results[i].id}">
+          <div class="posttags">
+            <div class="tag">${tags}</div>
           </div>
-          <div class="comments"><div class="commentbutton" id="posticons">Comment<i class="fa-solid fa-comment"></i></i></div></div>
+          <div class="postId">${results[i].id}</div>
+          <h2 class="postpreviewheading">${title}</h2>
+          <div class="postcreator"></div>
+          <div class="postdatetime">${date}</div>
+          <div class="postmedia">
+            <img class="postmedia" src="${media}" onerror="this.src='/images/mediaplaceholder.png'">
+          </div>
+          <p class="postpreviewtext">
+            ${body}
+          </p>
+          <div class="reactions">
+            <div class="likecounter">${reactions}</div>
+            <div class="thumbsup" id="posticons">
+              Like<i class="fa-solid fa-thumbs-up"></i>
+            </div>
+            <div class="comments">
+              <div class="commentbutton" id="posticons">
+                Comment<i class="fa-solid fa-comment"></i>
+              </div>
+            </div>
+            <button class="deletebutton">
+              Delete<i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
         </div>
-      </div>
-    </div>`;
+      </div>`;
     }
   } catch (error) {
-    console.error("Feil under lasting av innlegg:", error);
+    console.error("Woops! Somehting Went Wrong:", error);
   }
 };
 
 loadMorePostsButton.addEventListener("click", loadMorePosts);
+
+async function deletePost(postId) {
+  const deleteUrl = `${createPostUrl}/${postId}`;
+
+  try {
+    const response = await fetch(deleteUrl, {
+      method: "DELETE",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAxNywibmFtZSI6ImFuZGVyc3RvIiwiZW1haWwiOiJhbmRlcnN0b0BzdHVkLm5vcm9mZi5ubyIsImF2YXRhciI6bnVsbCwiYmFubmVyIjpudWxsLCJpYXQiOjE2OTA5MDg5ODl9.gXu4Fd5WLUIQBCtiM8hMNUrHAExW1ONYdqKecL_Z--Y",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Error deleting post");
+    }
+
+    console.log("Post deleted successfully");
+
+    updatePostView();
+  } catch (error) {
+    console.error("Error deleting post:", error);
+  }
+}
