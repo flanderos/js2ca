@@ -543,6 +543,14 @@ form .submitbtn:hover {
   margin-bottom: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  z-index: 100;
+  transition: transform 0.3s ease;
+  background-color: #fff;
+}
+
+.postbox.large {
+  transform: scale(1.2) !important; /* Endre skalaen for større effekt */
+  z-index: 1000;
 }
 
 .postmedia {

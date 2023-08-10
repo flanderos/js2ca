@@ -96,7 +96,7 @@ const loadMorePosts = async () => {
 
       blogFeed.innerHTML += `
       <div class="container">
-  <div class="postbox" data-post-id="${results[i].id}">
+  <div class="postbox" data-post-id="${results[i].id} onclick="togglePostSize(this)">
     <div class="posttags">
       <div class="tag">${tags}</div>
     </div>
@@ -217,3 +217,16 @@ const searchPosts = () => {
 
 const searchInput = document.getElementById("searchInput");
 searchInput.addEventListener("input", searchPosts);
+
+//togglesize
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("postmedia")) {
+      const postbox = event.target.closest(".postbox");
+      if (postbox) {
+        postbox.classList.toggle("large");
+      }
+    }
+  });
+});
