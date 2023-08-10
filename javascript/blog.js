@@ -160,6 +160,8 @@ async function deletePost(postId) {
   }
 }
 
+//filterfunction
+
 document.addEventListener("DOMContentLoaded", function () {
   const applyFilterButton = document.getElementById("applyFilter");
 
@@ -185,3 +187,33 @@ function applyFilter() {
     }
   });
 }
+
+//Search function
+
+const searchPosts = () => {
+  const searchInput = document
+    .getElementById("searchInput")
+    .value.toLowerCase();
+  const postContainers = document.querySelectorAll(".postbox");
+
+  postContainers.forEach((container) => {
+    const postId = container.querySelector(".postId").textContent.toLowerCase();
+    const postTitle = container
+      .querySelector(".postpreviewheading")
+      .textContent.toLowerCase();
+    const postTags = container.querySelector(".tag").textContent.toLowerCase();
+
+    if (
+      postId.includes(searchInput) ||
+      postTitle.includes(searchInput) ||
+      postTags.includes(searchInput)
+    ) {
+      container.style.display = "block";
+    } else {
+      container.style.display = "none";
+    }
+  });
+};
+
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", searchPosts);
