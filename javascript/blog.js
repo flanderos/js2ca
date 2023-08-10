@@ -31,44 +31,70 @@ async function getBlogPosts() {
     let reactions = results[i]._count.reactions;
     let comments = results[i]._count.comments;
 
+    console.log(comments);
+
     if (blogFeed) {
       blogFeed.innerHTML += `
-    <div class="container">
-  <div class="postbox" data-post-id="${results[i].id}">
-    <div class="posttags">
-      <div class="tag">${tags}</div>
-    </div>
-    <div class="postId">${results[i].id}</div>
-    <h2 class="postpreviewheading">${title}</h2>
-    <div class="postcreator"></div>
-    <div class="postdatetime">${date}</div>
-    <div class="postmedia">
-      <img class="postmedia" src="${media}" onerror="this.src='/images/mediaplaceholder.png'">
-    </div>
-    <p class="postpreviewtext">
-      ${body}
-    </p>
-    <div class="reactions">
-      <div class="likecounter">${reactions}</div>
-      <button class="thumbsup" id="posticons" data-post-id="${results[i].id}">
-        Like<i class="fa-solid fa-thumbs-up"></i>
-      </button>
-      <div class="comments">
-        <button class="commentbutton" id="posticons">
-          Comment<i class="fa-solid fa-comment"></i>
-        </button>
+      <div class="container">
+      <div class="postbox" data-post-id="${results[i].id}">
+        <div class="posttags">
+          <div class="tag">${tags}</div>
+        </div>
+        <div class="postId">${results[i].id}</div>
+        <h2 class="postpreviewheading">${title}</h2>
+        <div class="postcreator"></div>
+        <div class="postdatetime">${date}</div>
+        <div class="postmedia">
+          <img class="postmedia" src="${media}" onerror="this.src='/images/mediaplaceholder.png'">
+        </div>
+        <p class="postpreviewtext">${body}</p>
+        <div class="reactions">
+          <div class="likecounter">${reactions}</div>
+          <button class="thumbsup" id="posticons" data-post-id="${results[i].id}">
+            Like<i class="fa-solid fa-thumbs-up"></i>
+          </button>
+          <div class="comments">
+            <button class="commentbutton" id="posticons" onclick="toggleComments(this)">
+              Comment<i class="fa-solid fa-comment"></i>
+            </button>
+            <button class="deletebutton">
+              Delete<i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+        <div class="commentsection">
+          <textarea class="commentbox" placeholder="Write a comment..."></textarea>
+          <button class="commentpostbutton">Post Comment</button>
+          <div class="previouscomments"></div>
+        </div>
       </div>
-      <button class="deletebutton">
-        Delete<i class="fa-solid fa-trash"></i>
-      </button>
     </div>
-  </div>
-</div>`;
+    `;
     }
   }
 }
 
 getBlogPosts();
+
+const toggleComments = (button) => {
+  const postBox = button.closest(".postbox");
+  const commentSection = postBox.querySelector(".commentsection");
+
+  if (commentSection) {
+    commentSection.classList.toggle("show-comments");
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const commentButtons = document.querySelectorAll(".commentbutton");
+
+  commentButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      toggleComments(button);
+    });
+  });
+});
 
 const loadMorePosts = async () => {
   currentPage++;
@@ -81,7 +107,7 @@ const loadMorePosts = async () => {
     const results = await response.json();
 
     if (results.length === 0) {
-      console.log("Ingen flere innlegg å laste.");
+      console.log("No more posts!");
       return;
     }
 
@@ -96,36 +122,39 @@ const loadMorePosts = async () => {
 
       blogFeed.innerHTML += `
       <div class="container">
-  <div class="postbox" data-post-id="${results[i].id} onclick="togglePostSize(this)">
-    <div class="posttags">
-      <div class="tag">${tags}</div>
-    </div>
-    <div class="postId">${results[i].id}</div>
-    <h2 class="postpreviewheading">${title}</h2>
-    <div class="postcreator"></div>
-    <div class="postdatetime">${date}</div>
-    <div class="postmedia">
-      <img class="postmedia" src="${media}" onerror="this.src='/images/mediaplaceholder.png'">
-    </div>
-    <p class="postpreviewtext">
-      ${body}
-    </p>
-    <div class="reactions">
-      <div class="likecounter">${reactions}</div>
-      <button class="thumbsup" id="posticons" data-post-id="${results[i].id}">
-        Like<i class="fa-solid fa-thumbs-up"></i>
-      </button>
-      <div class="comments">
-        <button class="commentbutton" id="posticons">
-          Comment<i class="fa-solid fa-comment"></i>
-        </button>
+      <div class="postbox" data-post-id="${results[i].id}">
+        <div class="posttags">
+          <div class="tag">${tags}</div>
+        </div>
+        <div class="postId">${results[i].id}</div>
+        <h2 class="postpreviewheading">${title}</h2>
+        <div class="postcreator"></div>
+        <div class="postdatetime">${date}</div>
+        <div class="postmedia">
+          <img class="postmedia" src="${media}" onerror="this.src='/images/mediaplaceholder.png'">
+        </div>
+        <p class="postpreviewtext">${body}</p>
+        <div class="reactions">
+          <div class="likecounter">${reactions}</div>
+          <button class="thumbsup" id="posticons" data-post-id="${results[i].id}">
+            Like<i class="fa-solid fa-thumbs-up"></i>
+          </button>
+          <div class="comments">
+            <button class="commentbutton" id="posticons" onclick="toggleComments(this)">
+              Comment<i class="fa-solid fa-comment"></i>
+            </button>
+            <button class="deletebutton">
+              Delete<i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+        <div class="commentsection" >
+          <textarea class="commentbox" placeholder="Write a comment..."></textarea>
+          <button class="commentpostbutton">Post Comment</button>
+          <div class="previouscomments"></div>
+        </div>
       </div>
-      <button class="deletebutton">
-        Delete<i class="fa-solid fa-trash"></i>
-      </button>
-    </div>
-  </div>
-</div>`;
+    </div>`;
     }
   } catch (error) {
     console.error("Woops! Somehting Went Wrong:", error);
@@ -191,9 +220,13 @@ function applyFilter() {
 //Search function
 
 const searchPosts = () => {
-  const searchInput = document
-    .getElementById("searchInput")
-    .value.toLowerCase();
+  const searchInput = document.getElementById("searchInput");
+
+  if (!searchInput) {
+    return;
+  }
+
+  const searchText = searchInput.value.toLowerCase();
   const postContainers = document.querySelectorAll(".postbox");
 
   postContainers.forEach((container) => {
@@ -204,9 +237,9 @@ const searchPosts = () => {
     const postTags = container.querySelector(".tag").textContent.toLowerCase();
 
     if (
-      postId.includes(searchInput) ||
-      postTitle.includes(searchInput) ||
-      postTags.includes(searchInput)
+      postId.includes(searchText) ||
+      postTitle.includes(searchText) ||
+      postTags.includes(searchText)
     ) {
       container.style.display = "block";
     } else {
@@ -215,8 +248,13 @@ const searchPosts = () => {
   });
 };
 
-const searchInput = document.getElementById("searchInput");
-searchInput.addEventListener("input", searchPosts);
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("searchInput");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", searchPosts);
+  }
+});
 
 //togglesize
 
@@ -226,6 +264,66 @@ document.addEventListener("DOMContentLoaded", function () {
       const postbox = event.target.closest(".postbox");
       if (postbox) {
         postbox.classList.toggle("large");
+      }
+    }
+  });
+});
+
+//comment
+
+const commentButtons = document.querySelectorAll(".commentpostbutton");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".container");
+
+  container.addEventListener("click", async (event) => {
+    const target = event.target;
+
+    if (target.classList.contains("commentpostbutton")) {
+      const postBox = target.closest(".postbox");
+      const postId = postBox.dataset.postId;
+
+      const commentBox = postBox.querySelector(".commentbox");
+      const commentBody = commentBox.value;
+
+      if (!commentBody) {
+        alert("Please enter a comment.");
+        return;
+      }
+
+      const commentData = {
+        body: commentBody,
+      };
+
+      try {
+        const response = await fetch(`${url}/social/posts/${postId}/comment`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAxNywibmFtZSI6ImFuZGVyc3RvIiwiZW1haWwiOiJhbmRlcnN0b0BzdHVkLm5vcm9mZi5ubyIsImF2YXRhciI6bnVsbCwiYmFubmVyIjpudWxsLCJpYXQiOjE2OTA5MDg5ODl9.gXu4Fd5WLUIQBCtiM8hMNUrHAExW1ONYdqKecL_Z--Y",
+          },
+          body: JSON.stringify(commentData),
+        });
+
+        if (response.ok) {
+          const comment = await response.json();
+
+          // Clear the textarea
+          commentBox.value = "";
+
+          // Update the comments section for the specific post
+          const previousComments = postBox.querySelector(".previouscomments");
+          previousComments.innerHTML += `<div>${comment.body}</div>`;
+        } else {
+          console.error(
+            "Error creating comment:",
+            response.status,
+            response.statusText
+          );
+        }
+      } catch (error) {
+        console.error("An error occurred:", error);
       }
     }
   });

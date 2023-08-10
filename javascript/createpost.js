@@ -99,7 +99,7 @@ const validatePosting = (event) => {
       })();
     } else {
       alert(
-        "Validering mislyktes. Vennligst fyll ut alle feltene riktig. Se hva som mangler under feltene"
+        "Validation failed. Please fill out all fields correctly. See what is missing below the fields."
       );
     }
   }

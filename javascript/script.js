@@ -40,3 +40,37 @@ const errorPopUp = () => {
 subscribeButton.addEventListener("click", errorPopUp);
 
 const darkenBackground = () => {};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("accessToken");
+  const loginSection = document.querySelector(".loginsection");
+  const feedPage = document.getElementById("feedPage");
+  const communityPage = document.getElementById("communityPage");
+  const registerButtonTop = document.querySelector(".registerbuttontop");
+  const profileCards = document.querySelector(".profile-card");
+  const seeProfilesMessage = document.querySelector(".loginorcreate");
+
+  if (token) {
+    if (registerButtonTop) {
+      registerButtonTop.style.backgroundColor = "grey";
+    }
+    if (loginSection) {
+      loginSection.style.display = "none";
+    }
+    if (feedPage) {
+      feedPage.style.display = "block";
+    }
+    if (communityPage) {
+      communityPage.style.display = "block";
+    }
+    if (seeProfilesMessage) {
+      seeProfilesMessage.style.display = "none";
+    }
+  } else {
+    profileCards.style.display = "none";
+    loginSection.style.display = "block";
+    feedPage.style.display = "none";
+    communityPage.style.display = "none";
+    seeProfilesMessage.style.display = "block";
+  }
+});

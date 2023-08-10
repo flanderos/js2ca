@@ -19,6 +19,10 @@ body {
   border: 1px solid black;
 }
 
+.show-comments {
+  display: block !important;
+}
+
 a {
   color: var(--white);
   text-decoration: none;
@@ -650,6 +654,28 @@ form .submitbtn:hover {
   margin-bottom: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  z-index: 5000;
+}
+
+/*commentsection*/
+
+.commentsection {
+  height: 200px;
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid rgb(206, 206, 206);
+  padding: 5px;
+  display: none;
+}
+
+.commentpostbutton {
+  color: #000000;
+  width: 150px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .filteroption {
@@ -893,6 +919,8 @@ form .submitbtn:hover {
 
 textarea {
   font-size: 0.9rem;
+  resize: none;
+  padding: 5px;
 }
 
 #posttext {
