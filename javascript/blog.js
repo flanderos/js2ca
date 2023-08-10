@@ -15,6 +15,8 @@ const postsPerPage = 10;
 
 const blogPostsUrl = url + "/social/posts?limit=10";
 
+const allPostsUrl = url + "/social/posts";
+
 async function getBlogPosts() {
   const response = await fetch(blogPostsUrl, options);
   const results = await response.json();
@@ -29,7 +31,8 @@ async function getBlogPosts() {
     let reactions = results[i]._count.reactions;
     let comments = results[i]._count.comments;
 
-    blogFeed.innerHTML += `
+    if (blogFeed) {
+      blogFeed.innerHTML += `
     <div class="container">
   <div class="postbox" data-post-id="${results[i].id}">
     <div class="posttags">
@@ -61,6 +64,7 @@ async function getBlogPosts() {
     </div>
   </div>
 </div>`;
+    }
   }
 }
 
@@ -154,4 +158,30 @@ async function deletePost(postId) {
   } catch (error) {
     console.error("Error deleting post:", error);
   }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const applyFilterButton = document.getElementById("applyFilter");
+
+  if (applyFilterButton) {
+    applyFilterButton.addEventListener("click", applyFilter);
+  }
+});
+
+function applyFilter() {
+  const dateFilter = document.getElementById("dateFilter").value;
+
+  const postContainers = document.querySelectorAll(".postbox");
+
+  postContainers.forEach((postContainer) => {
+    const postDateElement = postContainer.querySelector(".postdatetime");
+    const apiDate = postDateElement.textContent;
+    const postDate = apiDate.split("T")[0];
+
+    if (dateFilter === "" || dateFilter === postDate) {
+      postContainer.style.display = "block";
+    } else {
+      postContainer.style.display = "none";
+    }
+  });
 }

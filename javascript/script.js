@@ -5,6 +5,8 @@ const navBar = document.querySelector("nav");
 const hamburger = document.querySelector(".hamburgericon");
 let checkForMenu = false;
 const headerIcons = document.querySelector(".dnone");
+const createPostContainer = document.querySelector(".profilebox");
+const background = document.querySelector(".flexdiv");
 
 const toggleMenu = () => {
   if (checkForMenu) {
@@ -36,3 +38,5 @@ const errorPopUp = () => {
 };
 
 subscribeButton.addEventListener("click", errorPopUp);
+
+const darkenBackground = () => {};
