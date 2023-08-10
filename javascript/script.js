@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const registerButtonTop = document.querySelector(".registerbuttontop");
   const profileCards = document.querySelector(".profile-card");
   const seeProfilesMessage = document.querySelector(".loginorcreate");
+  const feedContainer = document.querySelector(".container");
 
   if (token) {
     if (registerButtonTop) {
@@ -66,11 +67,27 @@ document.addEventListener("DOMContentLoaded", () => {
     if (seeProfilesMessage) {
       seeProfilesMessage.style.display = "none";
     }
+    if (feedContainer) {
+      feedContainer.style.display = "block";
+    }
   } else {
-    profileCards.style.display = "none";
-    loginSection.style.display = "block";
-    feedPage.style.display = "none";
-    communityPage.style.display = "none";
-    seeProfilesMessage.style.display = "block";
+    if (profileCards) {
+      profileCards.style.display = "none";
+    }
+    if (loginSection) {
+      loginSection.style.display = "block";
+    }
+    if (feedPage) {
+      feedPage.style.display = "none";
+    }
+    if (communityPage) {
+      communityPage.style.display = "none";
+    }
+    if (seeProfilesMessage) {
+      seeProfilesMessage.style.display = "block";
+    }
+    if (feedContainer) {
+      feedContainer.style.display = "none";
+    }
   }
 });
