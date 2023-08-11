@@ -10,6 +10,8 @@ const dislikeCounter = document.querySelector(".dislikecounter");
 const dislikeButton = document.querySelector(".thumbsdown");
 const loadMorePostsButton = document.querySelector(".loadmorebutton");
 
+// Initial page and posts settings
+
 let currentPage = 1;
 const postsPerPage = 10;
 

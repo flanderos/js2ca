@@ -108,7 +108,6 @@ ul {
 }
 
 .landingsectionbox {
-  margin-top: 150px;
   font-family: "Roboto Mono", monospace;
 }
 
@@ -263,7 +262,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 95%;
+  width: 100%;
 }
 
 .flexdiv {
@@ -292,7 +291,6 @@ ul {
 }
 
 .cardcontainer {
-  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -400,11 +398,6 @@ nav ul li:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-top: 200px;
   margin-right: 50px;
   color: #005073;
   transition: 0.5s;
@@ -592,6 +585,14 @@ form .submitbtn:hover {
   border-radius: 50%;
   object-fit: cover;
   margin: 10px auto;
+}
+
+.around {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .container {

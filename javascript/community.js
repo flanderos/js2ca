@@ -4,10 +4,14 @@ const userUrl = url + "/social/profiles?limit=10";
 const showMoreButton = document.querySelector(".showmorebutton");
 const userCounter = document.querySelector(".counter");
 
+// Initial settings for loading user profiles
+
 let loadedProfiles = 10;
 let perPage = 10;
 
 const showMoreUrl = userUrl + "&offset=10" + perPage;
+
+// Authorization variable for fetching data
 
 const options = {
   headers: {
@@ -16,10 +20,10 @@ const options = {
   },
 };
 
-async function getUserData(pageNumber) {
+// Fetch and display user profiles
+
+async function getUserData() {
   const profileCard = document.querySelector(".profile-card");
-  const cardProfileImage = document.querySelector(".profile-image");
-  const cardUserName = document.querySelector("#username");
 
   const response = await fetch(
     `${userUrl}&per_page=${perPage}&offset=${loadedProfiles}`,
@@ -36,6 +40,8 @@ async function getUserData(pageNumber) {
     let following = results[i]._count.following;
     let posts = results[i]._count.posts;
 
+    // Create HTML structure for each user profile
+
     if (profileCard) {
       profileCard.innerHTML += `<div class="profilebox"><img class="profile-image" src="${userImage}" onerror="this.src='/images/placeholderimg.png'" alt="profilepicture" />
     <h2 class="username" id="username">${userName}</h2>
@@ -49,7 +55,11 @@ async function getUserData(pageNumber) {
   }
 }
 
+// Call the function to fetch and display initial user profiles
+
 getUserData(userUrl);
+
+// Load more user profiles function
 
 if (showMoreButton) {
   showMoreButton.addEventListener("click", function () {
@@ -68,5 +78,7 @@ async function getAllUsers() {
     userCounter.innerHTML = `${totalUsers}`;
   }
 }
+
+// Call the function to fetch and display the total number of users
 
 getAllUsers();

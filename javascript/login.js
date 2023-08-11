@@ -10,15 +10,21 @@ const emailError = document.querySelector(".emailerror");
 const passwordError = document.querySelector(".passworderror");
 const passwordInput = document.querySelector("#passwordregform");
 
+// Function to check if the email is a Noroff email
+
 function isNoroffEmail(email) {
-  return email.endsWith("@stud.noroff.no");
+  return email.endsWith("@stud.noroff.no") || email.endsWith("@noroff.no");
 }
+
+// Function to register the user
 
 function registerUser() {
   const directToLoginMessage = document.querySelector(".directtologinmessage");
   const userName = nameInput.value;
   const userEmail = emailInput.value;
   const userPassword = passwordInput.value;
+
+  // Display the direct to login message
 
   directToLoginMessage.style.display = "block";
 
@@ -27,6 +33,8 @@ function registerUser() {
     email: userEmail,
     password: userPassword,
   };
+
+  // Send a POST request to register the user
 
   fetch(socialUrl, {
     method: "POST",
@@ -49,9 +57,13 @@ function registerUser() {
     });
 }
 
+// Function to validate the registration form
+
 function validateForm(event) {
   if (event) {
     event.preventDefault();
+
+    // Validate name input
 
     if (nameInput.value.trim().length > 1) {
       nameError.style.display = "none";
@@ -59,11 +71,15 @@ function validateForm(event) {
       nameError.style.display = "block";
     }
 
+    // Validate name format
+
     if (validateName(nameInput.value) === true) {
       nameError.style.display = "none";
     } else {
       nameError.style.display = "block";
     }
+
+    // Validate email format
 
     if (validateEmail(emailInput.value) === true) {
       emailError.style.display = "none";
@@ -71,11 +87,15 @@ function validateForm(event) {
       emailError.style.display = "block";
     }
 
+    // Validate password length
+
     if (passwordInput.value.trim().length > 6) {
       passwordError.style.display = "none";
     } else {
       passwordError.style.display = "block";
     }
+
+    // Validate all criteria before registering
 
     if (
       nameInput.value.trim().length > 0 &&
@@ -98,11 +118,15 @@ if (regButton) {
   regButton.addEventListener("click", validateForm);
 }
 
+// Function to validate email format
+
 function validateEmail(email) {
   const regEx = /\S+@\S+\.\S+/;
   const patternMatches = regEx.test(email);
   return patternMatches && email.endsWith("@stud.noroff.no");
 }
+
+// Function to validate name format
 
 function validateName(nameInput) {
   const nameRegex = /^[A-Za-z\s]+$/;
@@ -118,11 +142,17 @@ const loginButtonForUsers = document.querySelector("#submitlogin");
 const loginForm = document.querySelector(".loginform");
 const loginError = document.querySelector(".loginerror");
 
+// Flag to track user login status
+
 let isUserLoggedIn = false;
+
+// Function to update header buttons based on login status
 
 const updateHeaderButtons = () => {
   const loginButton = document.querySelector(".loginbuttontop");
   const logoutButton = document.querySelector(".logoutButton");
+
+  // Update button visibility based on user login status
 
   if (isUserLoggedIn) {
     loginButton.style.display = "none";
@@ -133,11 +163,17 @@ const updateHeaderButtons = () => {
   }
 };
 
+// Function to handle user login
+
 const loginUser = (event) => {
   event.preventDefault();
 
+  // Get user's email and password from input fields
+
   const userEmail = emailInputForLogin.value;
   const userPassword = passwordInputForLogin.value;
+
+  // Prepare user data for login
 
   const userData = {
     email: userEmail,
@@ -145,6 +181,8 @@ const loginUser = (event) => {
   };
 
   const loginUrl = "https://api.noroff.dev/api/v1/social/auth/login";
+
+  // Send POST request to log in the user
 
   fetch(loginUrl, {
     method: "POST",
@@ -163,12 +201,18 @@ const loginUser = (event) => {
       const accessToken = data.accessToken;
       console.log("Login successful. Access Token:", accessToken);
 
+      // Store access token in localStorage
+
       localStorage.setItem("accessToken", accessToken);
+
+      // Redirect user to the blog page
 
       window.location.href = "blog.html";
     })
     .catch((error) => {
       console.error("Error logging in user:", error);
+
+      // Display login error message
 
       loginError.style.display = "block";
     });

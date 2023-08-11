@@ -8,6 +8,8 @@ const headerIcons = document.querySelector(".dnone");
 const createPostContainer = document.querySelector(".profilebox");
 const background = document.querySelector(".flexdiv");
 
+// Function to toggle the mobile menu
+
 const toggleMenu = () => {
   if (checkForMenu) {
     hideMenu();
@@ -16,20 +18,28 @@ const toggleMenu = () => {
   }
 };
 
+// Function to show the mobile menu
+
 const showMenu = () => {
   navBar.classList.add("checked");
   navBar.style.transition = "0.5s";
   checkForMenu = true;
 };
 
+// Function to hide the mobile menu
+
 const hideMenu = () => {
   navBar.classList.remove("checked");
   checkForMenu = false;
 };
 
+// Add a click event listener to the hamburger icon
+
 if (hamburger) {
   hamburger.addEventListener("click", toggleMenu);
 }
+
+// Selecting the subscribe button and defining an error pop-up function
 
 const subscribeButton = document.querySelector(".subscribebutton");
 
@@ -41,37 +51,45 @@ subscribeButton.addEventListener("click", errorPopUp);
 
 const darkenBackground = () => {};
 
-document.addEventListener("DOMContentLoaded", () => {
-  const token = localStorage.getItem("accessToken");
-  const loginSection = document.querySelector(".loginsection");
-  const feedPage = document.getElementById("feedPage");
-  const communityPage = document.getElementById("communityPage");
-  const registerButtonTop = document.querySelector(".registerbuttontop");
-  const profileCards = document.querySelector(".profile-card");
-  const seeProfilesMessage = document.querySelector(".loginorcreate");
-  const feedContainer = document.querySelector(".container");
+// Wait for the DOM to be fully loaded
 
-  if (token) {
-    if (registerButtonTop) {
-      registerButtonTop.style.backgroundColor = "grey";
+document.addEventListener("DOMContentLoaded", () =>
+  // Check if a user is logged in using the access token
+  {
+    const token = localStorage.getItem("accessToken");
+    const loginSection = document.querySelector(".loginsection");
+    const feedPage = document.getElementById("feedPage");
+    const communityPage = document.getElementById("communityPage");
+    const registerButtonTop = document.querySelector(".registerbuttontop");
+    const profileCards = document.querySelector(".profile-card");
+    const seeProfilesMessage = document.querySelector(".loginorcreate");
+    const feedContainer = document.querySelector(".container");
+
+    // Based on whether the user is logged in or not, adjust UI elements
+
+    if (token) {
+      // If logged in
+      if (registerButtonTop) {
+        registerButtonTop.style.backgroundColor = "grey";
+      }
+      if (loginSection) {
+        loginSection.style.display = "none";
+      }
+      if (feedPage) {
+        feedPage.style.display = "block";
+      }
+      if (communityPage) {
+        communityPage.style.display = "block";
+      }
+      if (seeProfilesMessage) {
+        seeProfilesMessage.style.display = "none";
+      }
+      if (feedContainer) {
+        feedContainer.style.display = "block";
+      }
     }
-    if (loginSection) {
-      loginSection.style.display = "none";
-    }
-    if (feedPage) {
-      feedPage.style.display = "block";
-    }
-    if (communityPage) {
-      communityPage.style.display = "block";
-    }
-    if (seeProfilesMessage) {
-      seeProfilesMessage.style.display = "none";
-    }
-    if (feedContainer) {
-      feedContainer.style.display = "block";
-    }
-  } else {
-    if (profileCards) {
+    // If not logged in{
+    else if (profileCards) {
       profileCards.style.display = "none";
     }
     if (loginSection) {
@@ -90,4 +108,4 @@ document.addEventListener("DOMContentLoaded", () => {
       feedContainer.style.display = "none";
     }
   }
-});
+);

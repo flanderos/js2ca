@@ -9,9 +9,13 @@ const mediaError = document.querySelector(".mediaerror");
 const createPostButton = document.querySelector(".createpostlink");
 const createPostUrl = url + "/social/posts";
 
+// Function to validate and handle the post creation process
+
 const validatePosting = (event) => {
   if (event) {
     event.preventDefault();
+
+    // Validate title length
 
     if (
       titleInput.value.trim().length >= 2 &&
@@ -22,6 +26,8 @@ const validatePosting = (event) => {
       titleError.style.display = "block";
     }
 
+    // Validate text length
+
     if (
       textInput.value.trim().length >= 2 &&
       textInput.value.trim().length <= 250
@@ -30,6 +36,8 @@ const validatePosting = (event) => {
     } else {
       textError.style.display = "block";
     }
+
+    // Validate tag length
 
     if (
       tagInput.value.trim().length >= 2 &&
@@ -40,12 +48,16 @@ const validatePosting = (event) => {
       tagError.style.display = "block";
     }
 
+    // Validate media URL format
+
     const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
     if (urlPattern.test(mediaInput.value.trim())) {
       mediaError.style.display = "none";
     } else {
       mediaError.style.display = "block";
     }
+
+    // If all validations pass, attempt to create the post
 
     if (
       titleInput.value.trim().length >= 2 &&
@@ -65,6 +77,8 @@ const validatePosting = (event) => {
             media: mediaInput.value.trim(),
           };
 
+          // Send the POST request to create a new post
+
           const response = await fetch(createPostUrl, {
             method: "POST",
             headers: {
@@ -74,6 +88,8 @@ const validatePosting = (event) => {
             },
             body: JSON.stringify(postData),
           });
+
+          // Clear input fields
 
           titleInput.value = "";
           textInput.value = "";
@@ -89,6 +105,8 @@ const validatePosting = (event) => {
         } catch (error) {
           console.error("Error creating post:", error);
         }
+
+        // Function to update the post view after successful creation
 
         async function updatePostView() {
           blogFeed.innerHTML = "";
