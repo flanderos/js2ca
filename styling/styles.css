@@ -600,8 +600,8 @@ form .submitbtn:hover {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: -260px;
-  left: -3px;
+  top: -270px;
+  right: -2.26px;
   width: 100%;
 }
 
