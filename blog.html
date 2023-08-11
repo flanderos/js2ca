@@ -53,7 +53,24 @@
             <div class="mediaerror" id="valerror">Enter a valid url</div>
             <button class="createpostlink">Create post</button>
           </form>
+          <form class="editpost">
+            <h3>Edit a post</h3>
+            <label for="posttitle">Title</label>
+            <input type="text" class="posttext" id="posttitle">
+            <div class="titleerror" id="valerror">Title must contain min 2 max 25 letters</div>
+            <label for="posttext">Text</label>
+            <textarea type="text" id="posttext"></textarea>
+            <div class="texterror" id="valerror">Minimum 2 letters, Max 250 letters</div>
+            <label for="posttags">Tags</label>
+            <input type="text" id="tags">
+            <div class="tagerror" id="valerror">Minimum 2 letters, Max 25 letters</div>
+            <label for="Media">Media</label>
+            <input type="url" id="postmedia"> 
+            <div class="mediaerror" id="valerror">Enter a valid url</div>
+            <button class="createpostlink">Edit post</button>
+          </form>
         </div>
+        
         <div class="searchcontainer">
           <input type="text" id="searchInput" placeholder="Search...">
           <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>

@@ -15,9 +15,12 @@ function isNoroffEmail(email) {
 }
 
 function registerUser() {
+  const directToLoginMessage = document.querySelector(".directtologinmessage");
   const userName = nameInput.value;
   const userEmail = emailInput.value;
   const userPassword = passwordInput.value;
+
+  directToLoginMessage.style.display = "block";
 
   const userData = {
     name: userName,

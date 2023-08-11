@@ -31,23 +31,26 @@ async function getBlogPosts() {
     let reactions = results[i]._count.reactions;
     let comments = results[i]._count.comments;
 
-    console.log(comments);
-
     if (blogFeed) {
       blogFeed.innerHTML += `
       <div class="container">
       <div class="postbox" data-post-id="${results[i].id}">
         <div class="posttags">
           <div class="tag">${tags}</div>
+          <input type="text" class="editposttags" id="postags" style ="display: none">
+          <button class="editbutton">Edit<i class="fa-regular fa-pen-to-square"></i></button>
         </div>
         <div class="postId">${results[i].id}</div>
         <h2 class="postpreviewheading">${title}</h2>
+        <input type="text" class="editposttitle" id="posttitle" style="display: none">
         <div class="postcreator"></div>
         <div class="postdatetime">${date}</div>
+        <input type="text" class="editpostmedia" id="postmedia" style="display: none;">
         <div class="postmedia">
           <img class="postmedia" src="${media}" onerror="this.src='/images/mediaplaceholder.png'">
         </div>
         <p class="postpreviewtext">${body}</p>
+        <textarea class="editposttext" style="display: none;">${body}</textarea>
         <div class="reactions">
           <div class="likecounter">${reactions}</div>
           <button class="thumbsup" id="posticons" data-post-id="${results[i].id}">
@@ -60,6 +63,7 @@ async function getBlogPosts() {
             <button class="deletebutton">
               Delete<i class="fa-solid fa-trash"></i>
             </button>
+            
           </div>
         </div>
         <div class="commentsection">
@@ -324,6 +328,90 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } catch (error) {
         console.error("An error occurred:", error);
+      }
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".container");
+
+  container.addEventListener("click", async (event) => {
+    if (event.target.classList.contains("editbutton")) {
+      const postBox = event.target.closest(".postbox");
+
+      if (postBox) {
+        const postId = postBox.dataset.postId;
+        const editPostText = postBox.querySelector(".editposttext");
+        const editTitle = postBox.querySelector(".editposttitle");
+        const editTags = postBox.querySelector(".editposttags");
+        const editMedia = postBox.querySelector(".editpostmedia");
+
+        if (editPostText.style.display === "none") {
+          event.target.textContent = "Save";
+
+          const existingTitle = postBox.querySelector(
+            ".postpreviewheading"
+          ).textContent;
+          const existingTags = postBox.querySelector(".tag").textContent;
+          const existingMedia = postBox.querySelector(".postmedia img").src;
+
+          editTitle.value = existingTitle;
+          editTags.value = existingTags;
+          editMedia.value = existingMedia;
+
+          editTitle.style.display = "block";
+          editPostText.style.display = "block";
+          editTags.style.display = "block";
+          editMedia.style.display = "block";
+        } else {
+          event.target.textContent = "Edit";
+
+          const newTitle = editTitle.value;
+          const newText = editPostText.value;
+          const newTags = editTags.value;
+          const newMedia = editMedia.value;
+
+          const updatedData = {
+            title: newTitle,
+            body: newText,
+            tags: [newTags],
+            media: newMedia,
+          };
+
+          try {
+            const response = await fetch(`${url}/social/posts/${postId}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAxNywibmFtZSI6ImFuZGVyc3RvIiwiZW1haWwiOiJhbmRlcnN0b0BzdHVkLm5vcm9mZi5ubyIsImF2YXRhciI6bnVsbCwiYmFubmVyIjpudWxsLCJpYXQiOjE2OTA5MDg5ODl9.gXu4Fd5WLUIQBCtiM8hMNUrHAExW1ONYdqKecL_Z--Y",
+              },
+              body: JSON.stringify(updatedData),
+            });
+
+            if (response.ok) {
+              postBox.querySelector(".postpreviewheading").textContent =
+                newTitle;
+              postBox.querySelector(".tag").textContent = newTags;
+              postBox.querySelector(".postmedia img").src = newMedia;
+              postBox.querySelector(".postpreviewtext").textContent = newText;
+            } else {
+              console.error(
+                "Error updating post:",
+                response.status,
+                response.statusText
+              );
+            }
+          } catch (error) {
+            console.error("An error occurred:", error);
+          }
+
+          editTitle.style.display = "none";
+          editPostText.style.display = "none";
+          editTags.style.display = "none";
+          editMedia.style.display = "none";
+        }
       }
     }
   });
