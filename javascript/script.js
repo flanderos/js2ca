@@ -87,25 +87,26 @@ document.addEventListener("DOMContentLoaded", () =>
       if (feedContainer) {
         feedContainer.style.display = "block";
       }
-    }
-    // If not logged in{
-    else if (profileCards) {
-      profileCards.style.display = "none";
-    }
-    if (loginSection) {
-      loginSection.style.display = "block";
-    }
-    if (feedPage) {
-      feedPage.style.display = "none";
-    }
-    if (communityPage) {
-      communityPage.style.display = "none";
-    }
-    if (seeProfilesMessage) {
-      seeProfilesMessage.style.display = "block";
-    }
-    if (feedContainer) {
-      feedContainer.style.display = "none";
+    } else {
+      // If not logged in
+      if (profileCards) {
+        profileCards.style.display = "none";
+      }
+      if (loginSection) {
+        loginSection.style.display = "block";
+      }
+      if (feedPage) {
+        feedPage.style.display = "none";
+      }
+      if (communityPage) {
+        communityPage.style.display = "none";
+      }
+      if (seeProfilesMessage) {
+        seeProfilesMessage.style.display = "block";
+      }
+      if (feedContainer) {
+        feedContainer.style.display = "none";
+      }
     }
   }
 );

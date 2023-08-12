@@ -9,13 +9,9 @@ const mediaError = document.querySelector(".mediaerror");
 const createPostButton = document.querySelector(".createpostlink");
 const createPostUrl = url + "/social/posts";
 
-// Function to validate and handle the post creation process
-
 const validatePosting = (event) => {
   if (event) {
     event.preventDefault();
-
-    // Validate title length
 
     if (
       titleInput.value.trim().length >= 2 &&
@@ -26,8 +22,6 @@ const validatePosting = (event) => {
       titleError.style.display = "block";
     }
 
-    // Validate text length
-
     if (
       textInput.value.trim().length >= 2 &&
       textInput.value.trim().length <= 250
@@ -36,8 +30,6 @@ const validatePosting = (event) => {
     } else {
       textError.style.display = "block";
     }
-
-    // Validate tag length
 
     if (
       tagInput.value.trim().length >= 2 &&
@@ -48,16 +40,12 @@ const validatePosting = (event) => {
       tagError.style.display = "block";
     }
 
-    // Validate media URL format
-
     const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
     if (urlPattern.test(mediaInput.value.trim())) {
       mediaError.style.display = "none";
     } else {
       mediaError.style.display = "block";
     }
-
-    // If all validations pass, attempt to create the post
 
     if (
       titleInput.value.trim().length >= 2 &&
@@ -77,19 +65,15 @@ const validatePosting = (event) => {
             media: mediaInput.value.trim(),
           };
 
-          // Send the POST request to create a new post
-
           const response = await fetch(createPostUrl, {
             method: "POST",
             headers: {
               "Content-Type": "application/json; charset=UTF-8",
               Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAxNywibmFtZSI6ImFuZGVyc3RvIiwiZW1haWwiOiJhbmRlcnN0b0BzdHVkLm5vcm9mZi5ubyIsImF2YXRhciI6bnVsbCwiYmFubmVyIjpudWxsLCJpYXQiOjE2OTA5MDg5ODl9.gXu4Fd5WLUIQBCtiM8hMNUrHAExW1ONYdqKecL_Z--Y",
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywibmFtZSI6ImFuZGVyc3RvIiwiZW1haWwiOiJhbmRlcnN0b0BzdHVkLm5vcm9mZi5ubyIsImF2YXRhciI6bnVsbCwiYmFubmVyIjpudWxsLCJpYXQiOjE2OTE4Njk1Mjl9.Pnuapd1TL6qKQfp6wpNoxv4jHgupQXYQO0FO8YQ_2fM",
             },
             body: JSON.stringify(postData),
           });
-
-          // Clear input fields
 
           titleInput.value = "";
           textInput.value = "";
@@ -105,8 +89,6 @@ const validatePosting = (event) => {
         } catch (error) {
           console.error("Error creating post:", error);
         }
-
-        // Function to update the post view after successful creation
 
         async function updatePostView() {
           blogFeed.innerHTML = "";
