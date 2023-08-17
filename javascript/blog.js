@@ -37,10 +37,11 @@ async function getBlogPosts() {
       <div class="postbox" data-post-id="${results[i].id}">
         <div class="posttags">
           <div class="tag">${tags}</div>
-          <input type="text" class="editposttags" id="postags" style ="display: none">
+          
           <button class="editbutton">Edit<i class="fa-regular fa-pen-to-square"></i></button>
         </div>
         <div class="postId">${results[i].id}</div>
+        <input type="text" class="editposttags" id="postags" style ="display: none">
         <h2 class="postpreviewheading">${title}</h2>
         <input type="text" class="editposttitle" id="posttitle" style="display: none">
         <div class="postcreator"></div>

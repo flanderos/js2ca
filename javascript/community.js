@@ -31,8 +31,6 @@ async function getUserData() {
   );
   const results = await response.json();
 
-  console.log(results);
-
   for (let i = 0; i < results.length; i++) {
     let userName = results[i].name;
     let userImage = results[i].banner;
