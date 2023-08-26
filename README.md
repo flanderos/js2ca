@@ -21,10 +21,10 @@ Welcome to my project, a social media platform. Follow these steps to open the p
    
 Clone the project by running the following command in the terminal:
 
-git clone https://github.com/flanderose/js2ca.git
-cd js2ca
-npm install
-npm start
+1. git clone https://github.com/flanderose/js2ca.git
+2. cd js2ca
+3. npm install
+4. npm start
 
 
 
