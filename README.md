@@ -1,29 +1,30 @@
-# js2ca
+# Big Brains Community
+===
 
-Course assignment for Javascript 2
+## A Social Media Platform
 
-#Resources:
+Welcome to my project, a social media platform. Follow these steps to open the project.
 
-https://themeforest.net/search/social%20network?page=2#content
+###Features
+-User can create a Profile
+-User can log in and out
+-User can create a post
+-User can edit their posts
+-User can Delete their posts
+-User can like other posts
+-User can comment posts
+-User can see other profiles
+-User can see the blogposts
 
-https://preview.themeforest.net/item/cirkle-social-networking-html-template/full_screen_preview/30337595?_ga=2.84044057.1421914362.1687365856-825196108.1636343736
+### Clone the Project
 
-font-family: 'Abel', sans-serif;
-font-family: 'Agdasima', sans-serif;
-font-family: 'Molengo', sans-serif;
-font-family: 'Monoton', cursive;
-font-family: 'Neucha', cursive;
-font-family: 'Poppins', sans-serif;
-font-family: 'Roboto Mono', monospace;
-font-family: 'Roboto Slab', serif;
-font-family: 'Russo One', sans-serif;
+   
+Clone the project by running the following command in the terminal:
 
-background-color: #d4d4d4;
+git clone https://github.com/flanderose/js2ca.git
+cd js2ca
+npm install
+npm start
 
-{
-"id": 2017,
-"name": "andersto",
-"email": "andersto@stud.noroff.no",
-"banner": null,
-"avatar": null
-}
+
+
