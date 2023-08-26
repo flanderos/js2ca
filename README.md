@@ -5,7 +5,7 @@
 
 Welcome to my project, a social media platform. Follow these steps to open the project.
 
-###Features
+### Features
 - User can create a Profile
 * User can log in and out
 * User can create a post
