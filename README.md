@@ -1,5 +1,4 @@
 # Big Brains Community
-===
 
 ## A Social Media Platform
 
