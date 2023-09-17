@@ -27,4 +27,6 @@ Clone the project by running the following command in the terminal:
 4. npm start
 
 
+Link to Trello board:
 
+https://trello.com/b/81O2D7nf/js2-ca
